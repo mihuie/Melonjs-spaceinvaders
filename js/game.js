@@ -43,6 +43,8 @@ var game = {
     "loaded" : function () {
         // set the "Play/Ingame" Screen Object
         this.playScreen = new game.PlayScreen();
+        
+        me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, this.playScreen);
 
         // add our player entity in the entity pool
@@ -51,6 +53,6 @@ var game = {
         me.pool.register("enemy", game.Enemy);
 
         // start the game
-        me.state.change(me.state.PLAY);
+        me.state.change(me.state.MENU);
     }
 };
