@@ -24,10 +24,7 @@ game.TitleScreen = me.ScreenObject.extend({
       draw : function (renderer) {
         this.font.draw(renderer, "PRESS ENTER TO PLAY", 15, 400);
       },
-      onDestroyEvent : function() {
-        //just in case
-        this.scrollertween.stop();
-      }
+      
     })), 2);
  
     // change to play state on press Enter or click/tap
