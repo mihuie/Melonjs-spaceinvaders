@@ -25,6 +25,7 @@ game.Laser = me.Entity.extend({
         if (other.body.collisionType === me.collision.types.ENEMY_OBJECT) {
             me.game.world.removeChild(this);
             game.playScreen.enemyManager.removeChild(other);
+            game.data.score += (2 * game.data.bonus);
             return false;
         }
     },

@@ -1,13 +1,12 @@
-/*!
- *
- *   melonJS
- *   http://www.melonjs.org
- *
- *   Step by step game creation tutorial
- *
- **/
 
 var game = {
+  
+  // an object where to store game information
+    data : {
+        // score
+        score : 0,
+        bonus : 100
+    },
 
     // Run on page load.
     "onload" : function () {

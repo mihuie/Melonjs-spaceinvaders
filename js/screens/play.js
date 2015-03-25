@@ -8,6 +8,10 @@ game.PlayScreen = me.ScreenObject.extend({
      *  action to perform on state change
      */
     onResetEvent: function() {
+        
+        // reset the score
+        game.data.score = 0;
+      
         me.game.world.addChild(new me.ColorLayer("background", "#000000", 0));
         this.player = me.pool.pull("player");
         me.game.world.addChild(this.player, 1);
@@ -21,6 +25,19 @@ game.PlayScreen = me.ScreenObject.extend({
         this.enemyManager = new game.EnemyManager();
         this.enemyManager.createEnemies();
         me.game.world.addChild(this.enemyManager, 2);
+      
+        this.HUD = new game.HUD.Container();
+        me.game.world.addChild(this.HUD);
+      
+        //function that makes score dynamic
+        //more time longer i takes to complete the game less the bonus
+        var counter=setInterval(timer, 800); 
+        function timer()
+        {
+          game.data.bonus = game.data.bonus * 0.95;
+          if (game.data.bonus <= 0.1)
+            clearInterval(counter);
+        }
     },
 
 
