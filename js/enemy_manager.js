@@ -43,7 +43,7 @@ game.EnemyManager = me.Container.extend({
                 _this.pos.x += _this.vel;
             }
             game.playScreen.checkIfLoss(_this.pos.y + _this.childBounds.bottom);
-        }, 1000);
+        }, game.data.speed);
     },
 
     onDeactivateEvent: function () {
@@ -67,7 +67,7 @@ game.EnemyManager = me.Container.extend({
 
     update: function (time) {
         if (this.children.length === 0 && this.createdEnemies) {
-          me.state.change(me.state.GAMEOVER);
+            me.state.change(me.state.READY);
         }
         this._super(me.Container, "update", [time]);
     }

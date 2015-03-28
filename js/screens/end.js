@@ -1,16 +1,8 @@
-game.TitleScreen = me.ScreenObject.extend({
+game.ENDScreen = me.ScreenObject.extend({
     /**
      *  action to perform on state change
      */
   onResetEvent : function() {
-    
-    game.data.score = 0; //reset game score
-    
-    mySprite = new me.Sprite (0, 0, { image: "titlescreen",
-                                     spritewidth: 640,
-                                     spriteheigth: 480
-                                    });
-    me.game.world.addChild(mySprite, 1);
     
     me.game.world.addChild(new (me.Renderable.extend ({
       // constructor
@@ -25,9 +17,9 @@ game.TitleScreen = me.ScreenObject.extend({
       },
  
       draw : function (renderer) {
-        this.font.draw(renderer, "PRESS ENTER TO PLAY", 15, 400);
+        this.font.draw(renderer, "GAME OVER", 150, 240);
       },
-      
+
     })), 2);
  
     // change to play state on press Enter or click/tap
@@ -37,8 +29,7 @@ game.TitleScreen = me.ScreenObject.extend({
       if (action === "enter") {
         // play something on tap / enter
         // this will unlock audio on mobile devices
-        me.audio.play("cling");
-        me.state.change(me.state.PLAY);
+        me.state.change(me.state.MENU);
       }
     });
   },

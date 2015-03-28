@@ -1,16 +1,19 @@
 game.PlayScreen = me.ScreenObject.extend({
     checkIfLoss: function (y) {
         if (y >= this.player.pos.y) {
-            this.reset();
+            me.state.change(me.state.GAMEOVER);
         }
     },
+    
+    
     /**
      *  action to perform on state change
      */
     onResetEvent: function() {
-        
-        // reset the score
-        game.data.score = 0;
+        //changing varibles  
+        game.data.speed -= 200;
+        game.data.level += 1;
+        game.data.bonus = 10;//
       
         me.game.world.addChild(new me.ColorLayer("background", "#000000", 0));
         this.player = me.pool.pull("player");
@@ -27,7 +30,7 @@ game.PlayScreen = me.ScreenObject.extend({
         me.game.world.addChild(this.enemyManager, 2);
       
         this.HUD = new game.HUD.Container();
-        me.game.world.addChild(this.HUD);
+        me.game.world.addChild(this.HUD, 3);
       
         //function that makes score dynamic
         //more time longer i takes to complete the game less the bonus

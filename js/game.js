@@ -5,7 +5,9 @@ var game = {
     data : {
         // score
         score : 0,
-        bonus : 100
+        bonus : 10,
+        speed : 1000,
+        level : 0
     },
 
     // Run on page load.
@@ -43,9 +45,11 @@ var game = {
         // set the "Play/Ingame" Screen Object
         this.playScreen = new game.PlayScreen();
         this.endScreen = new game.ENDScreen();
+        this.nextScreen = new game.NextScreen();
       
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, this.playScreen);
+        me.state.set(me.state.READY, this.nextScreen)
         me.state.set(me.state.GAMEOVER, this.endScreen);
 
         // add our player entity in the entity pool
