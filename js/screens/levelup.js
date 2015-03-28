@@ -18,8 +18,8 @@ game.NextScreen = me.ScreenObject.extend({
       },
  
       draw : function (renderer) {
-        this.font.draw(renderer, "ENTER FOR LEVEL", 100, 180);
-        this.font.draw (renderer, game.data.level, 590, 180);
+        this.font.draw(renderer, "LEVELED UP", 150, 180);
+        this.font.draw (renderer, game.data.level, 280, 240);
       },
 
     })), 2);

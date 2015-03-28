@@ -7,7 +7,7 @@ var game = {
         score : 0,
         bonus : 10,
         speed : 1000,
-        level : 0
+        level : 1
     },
 
     // Run on page load.
